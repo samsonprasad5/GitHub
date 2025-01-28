@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.container {
+    margin: 20px auto;
+    width: 300px;
+}
+
+#input-text {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#qr-code-container {
+    margin-top: 20px;
+}
