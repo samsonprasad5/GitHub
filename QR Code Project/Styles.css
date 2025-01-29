@@ -1,7 +1,7 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #08a4ec, #f4f8fb);
+    background: linear-gradient(to bottom, #0d95d4, #f4f8fb);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +35,7 @@ input {
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #0c83f1;
     color: white;
     border: none;
     border-radius: 5px;
