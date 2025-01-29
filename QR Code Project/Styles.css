@@ -50,7 +50,20 @@ button:hover {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.qr-box {
+    width: 200px; /* Set a width for the box */
+    height: 200px; /* Set a height for the box */
+    display: flex;
+    justify-content: center; /* Center the QR code horizontally */
+    align-items: center; /* Center the QR code vertically */
+    border: 2px solid #000; /* Add a border to the box */
+    padding: 10px; /* Add some padding inside the box */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow for some depth */
+ }
+
 #qr-code {
-    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
 }
 
