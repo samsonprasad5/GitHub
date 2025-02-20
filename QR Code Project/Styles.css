@@ -65,4 +65,12 @@ button:hover {
 }
 
 #qr-code canvas {
-    width: 100%; /
+    width: 100%; /* Make the canvas fill the container */
+    height: 100%; /* Make the canvas fill the container */
+    display: block;
+}
+
+#downloadBtn {
+    display: none; /* Hidden by default */
+    margin-top: 20px; /* Space between QR code and button */
+}
