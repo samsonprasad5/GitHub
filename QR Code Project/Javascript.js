@@ -11,7 +11,7 @@ function generateQRCode() {
                 alert('Something went wrong. Please try again.');
             } else {
                 // Resize the canvas to make the QR code larger
-                const scaleFactor = 2; // Increase this to make the QR code bigger
+                const scaleFactor = 1; // Increase this to make the QR code bigger
                 const scaledWidth = canvas.width * scaleFactor;
                 const scaledHeight = canvas.height * scaleFactor;
 
