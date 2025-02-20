@@ -1,43 +1,31 @@
 function generateQRCode() {
     const input = document.getElementById('qr-input').value;
     const qrCodeElement = document.getElementById('qr-code');
+    const downloadBtn = document.getElementById('downloadBtn');
 
-    qrCodeElement.innerHTML = '';
+    qrCodeElement.innerHTML = ''; // Clear previous QR code
+    downloadBtn.style.display = 'none'; // Hide download button initially
 
     if (input) {
-        QRCode.toCanvas(input, { errorCorrectionLevel: 'H' }, function (error, canvas) {
+        const size = document.getElementById('sizeSelector').value; // Get selected size
+        QRCode.toCanvas(input, { width: size, errorCorrectionLevel: 'H' }, function (error, canvas) {
             if (error) {
                 console.error(error);
                 alert('Something went wrong. Please try again.');
             } else {
-                // Resize the canvas to make the QR code larger
-                const scaleFactor = 1; // Increase this to make the QR code bigger
-                const scaledWidth = canvas.width * scaleFactor;
-                const scaledHeight = canvas.height * scaleFactor;
+                // Append the canvas to the QR code container
+                qrCodeElement.appendChild(canvas);
 
-                // Create a new canvas with the desired size
-                const scaledCanvas = document.createElement('canvas');
-                scaledCanvas.width = scaledWidth;
-                scaledCanvas.height = scaledHeight;
+                // Show the download button
+                downloadBtn.style.display = 'inline-block';
 
-                // Draw the original canvas onto the new, larger canvas
-                const ctx = scaledCanvas.getContext('2d');
-                ctx.imageSmoothingEnabled = false; // Keep the QR code sharp
-                ctx.drawImage(canvas, 0, 0, scaledWidth, scaledHeight);
-
-                // Append the scaled canvas to the DOM
-                qrCodeElement.appendChild(scaledCanvas);
-
-                // Add download button
-                const downloadButton = document.createElement('button');
-                downloadButton.innerText = 'Download QR Code';
-                downloadButton.onclick = () => {
+                // Set up the download button functionality
+                downloadBtn.onclick = () => {
                     const link = document.createElement('a');
-                    link.href = scaledCanvas.toDataURL('image/png');
+                    link.href = canvas.toDataURL('image/png');
                     link.download = 'qrcode.png';
                     link.click();
                 };
-                qrCodeElement.appendChild(downloadButton);
             }
         });
     } else {
