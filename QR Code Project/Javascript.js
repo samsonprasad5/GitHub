@@ -8,7 +8,13 @@ function generateQRCode() {
 
     if (input) {
         const size = document.getElementById('sizeSelector').value; // Get selected size
-        QRCode.toCanvas(input, { width: size, errorCorrectionLevel: 'H' }, function (error, canvas) {
+        const qrCodeSize = parseInt(size, 10); // Convert size to a number
+
+        // Dynamically resize the QR code container
+        qrCodeElement.style.width = `${qrCodeSize}px`;
+        qrCodeElement.style.height = `${qrCodeSize}px`;
+
+        QRCode.toCanvas(input, { width: qrCodeSize, errorCorrectionLevel: 'H' }, function (error, canvas) {
             if (error) {
                 console.error(error);
                 alert('Something went wrong. Please try again.');
