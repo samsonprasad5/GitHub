@@ -10,13 +10,18 @@ body {
 }
 
 .container {
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 480px;
+    max-width: 600px; /* Increased from 400px to 450px */
     width: 90%;
+    height: 650px; /* Set a fixed height for the main container */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: space-around; /* Distribute space evenly */
 }
 
 h1 {
@@ -25,7 +30,7 @@ h1 {
 }
 
 input {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -55,18 +60,19 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px auto;
-    width: 300%; /* Fixed height for the QR code container */
+    width: 300px; /* Fixed width for the QR code container */
     height: 300px; /* Fixed height for the QR code container */
     overflow: hidden;
     border: 1px solid #ccc;
     padding: 10px;
     border-radius: 5px;
+    margin: 0 auto; /* Center the QR code container */
+    flex-shrink: 0; /* Prevent the container from shrinking */
 }
 
 #qr-code canvas {
-    width: 100%; /* Make the canvas fill the container */
-    height: 100%; /* Make the canvas fill the container */
+    max-width: 100%; /* Ensure the canvas doesn't exceed the container size */
+    max-height: 100%; /* Ensure the canvas doesn't exceed the container size */
     display: block;
 }
 
@@ -74,3 +80,23 @@ button:hover {
     display: none; /* Hidden by default */
     margin-top: 20px; /* Space between QR code and button */
 }
+    #sizeSelector {
+        width: 200px; /* Set the width of the dropdown */
+        padding: 10px; /* Add padding inside the dropdown */
+        font-size: 16px; /* Set the font size */
+        border: none; /* Add a border */
+        border-radius: 5px; /* Add rounded corners */
+        background-color: #439bee; /* Set background color */
+        cursor: pointer; /* Change cursor to pointer */
+        margin-bottom: 20px; /* Add space below the dropdown */
+    }
+    
+    #sizeSelector:hover {
+        border-color: #000000; /* Change border color on hover */
+    }
+  
+    #sizeSelector:focus {
+        outline: none; /* Remove the default focus outline */
+        border-color: #000000; /* Change border color on focus */
+        box-shadow: 0 0 5px rgba(12, 131, 241, 0.5); /* Add a subtle shadow on focus */
+    }
