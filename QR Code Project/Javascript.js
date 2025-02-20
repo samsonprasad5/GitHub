@@ -32,3 +32,11 @@ function generateQRCode() {
         alert('Please enter some text or a URL to generate a QR code.');
     }
 }
+
+// Add event listener to the size selector dropdown
+document.getElementById('sizeSelector').addEventListener('change', function () {
+    const input = document.getElementById('qr-input').value;
+    if (input) {
+        generateQRCode(); // Regenerate QR code if input is not empty
+    }
+});
