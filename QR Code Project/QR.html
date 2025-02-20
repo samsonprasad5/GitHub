@@ -12,10 +12,21 @@
         <input type="text" id="qr-input" placeholder="Enter text or URL">
         <button onclick="generateQRCode()">Generate QR Code</button>
         <div id="qr-code"></div>
+        <select id="sizeSelector">
+            <option value="100">Small (100x100)</option>
+            <option value="200">Medium (200x200)</option>
+            <option value="300">Large (300x300)</option>
+        </select>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
     <script src="Javascript.js"></script> <!-- Link to your JavaScript file -->
+
+    <script>
+        const sizeSelector = document.getElementById('sizeSelector');
+        const qrcodeContainer = document.getElementById('qrcode');
+        const downloadBtn = document.getElementById('downloadBtn');
+    </script>
 
 </body>
 </html>
