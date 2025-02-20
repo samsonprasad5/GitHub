@@ -15,7 +15,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 400px;
+    max-width: 480px;
     width: 90%;
 }
 
@@ -56,7 +56,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     margin: 20px auto;
-    width: 100%; /* Full width of the container */
+    width: 300%; /* Fixed height for the QR code container */
     height: 300px; /* Fixed height for the QR code container */
     overflow: hidden;
     border: 1px solid #ccc;
