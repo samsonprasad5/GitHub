@@ -15,9 +15,9 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 600px; /* Increased from 400px to 450px */
+    max-width: 650px; /* Increased from 400px to 450px */
     width: 90%;
-    height: 650px; /* Set a fixed height for the main container */
+    height: 800px; /* Set a fixed height for the main container */
     display: flex;
     flex-direction: column;
     align-items: center; /* Center items horizontally */
@@ -30,7 +30,7 @@ h1 {
 }
 
 input {
-    width: 95%;
+    width: 90%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #ccc;

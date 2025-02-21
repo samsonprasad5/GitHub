@@ -10,7 +10,7 @@ function generateQRCode() {
         const size = document.getElementById('sizeSelector').value; // Get selected size
         const qrCodeSize = parseInt(size, 10); // Convert size to a number
 
-        // Dynamically resize the QR code container
+        // Dynamically resize the QR code container (both width and height)
         qrCodeElement.style.width = `${qrCodeSize}px`;
         qrCodeElement.style.height = `${qrCodeSize}px`;
 
