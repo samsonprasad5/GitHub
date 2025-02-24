@@ -69,46 +69,68 @@ body {
   text-align: center;
 }
 
-/* Tree styling with boxes */
+/* Tree styling for horizontal layout */
 .tree {
   list-style-type: none;
   padding-left: 0;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.tree ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px; /* Space between levels */
+  position: relative;
 }
 
 .tree li {
-  margin: 10px 0;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 40px; /* Space between nodes */
+  position: relative;
 }
 
+/* Horizontal connectors */
 .tree li::before {
   content: "";
   position: absolute;
-  top: -10px;
+  top: -25px;
   left: 50%;
-  border-left: 2px solid #4CAF50;
-  height: 20px;
+  width: 100%;
+  border-top: 2px solid #4CAF50;
 }
 
+/* Vertical connectors */
 .tree li::after {
   content: "";
   position: absolute;
-  top: 10px;
+  top: -25px;
   left: 50%;
-  border-top: 2px solid #4CAF50;
-  width: 20px;
+  height: 25px;
+  border-left: 2px solid #4CAF50;
 }
 
-.tree li:last-child::before {
-  height: 20px; /* Adjust for the last child */
+/* Remove connectors for single nodes */
+.tree li:only-child::before, .tree li:only-child::after {
+  display: none;
 }
 
+/* Remove left connector for the first child */
+.tree li:first-child::before {
+  border: 0 none;
+}
+
+/* Remove right connector for the last child */
+.tree li:last-child::after {
+  border: 0 none;
+}
+
+/* Node styling */
 .toggle-btn {
   cursor: pointer;
   font-weight: bold;
@@ -139,17 +161,16 @@ body {
 }
 
 /* Child nodes */
-.tree ul {
-  list-style-type: none;
-  padding-left: 0;
+.tree ul ul {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px; /* Space between levels */
 }
 
-.tree ul li {
-  margin: 5px 0;
+.tree ul ul li {
+  margin: 0 40px; /* Space between nodes */
 }
 
 /* Popup styling */
