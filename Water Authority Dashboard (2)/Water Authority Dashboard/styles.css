@@ -54,6 +54,21 @@ body {
   display: none;
 }
 
+.dashboard-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 22%;
+  text-align: center;
+}
+
 #organizationTree {
   display: flex;
   justify-content: center;
