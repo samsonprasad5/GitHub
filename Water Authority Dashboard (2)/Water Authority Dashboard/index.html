@@ -13,14 +13,14 @@
     <ul>
       <li><button class="sidebar-btn" onclick="showSection('dashboard')">Dashboard</button></li>
       <li><button class="sidebar-btn" onclick="showSection('employeeManagementSection')">Employee Management</button></li>
-      <li><button class="sidebar-btn" id="openTreeBtn">Organization Tree</button></li>
+      <li><button class="sidebar-btn" onclick="showSection('organizationTreePage')">Organization Tree</button></li>
     </ul>
   </div>
 
   <!-- Main Content Area -->
   <div id="main-content">
     <!-- Dashboard Section -->
-    <div id="dashboard" class="hidden-content">
+    <div id="dashboard" class="content-section">
       <h1>Dashboard</h1>
       <div class="dashboard-cards">
         <div class="card">
@@ -45,7 +45,7 @@
     </div>
 
     <!-- Employee Management Section -->
-    <div id="employeeManagementSection" class="hidden-content">
+    <div id="employeeManagementSection" class="content-section" style="display: none;">
       <h2>Employee Management</h2>
       <form id="employeeForm">
         <input type="text" id="employeeName" placeholder="Employee Name" required>
@@ -57,12 +57,9 @@
       </form>
       <ul id="employeeDataList"></ul>
     </div>
-  </div>
 
-  <!-- Organization Tree Modal -->
-  <div id="organizationTreeModal" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeOrganizationTree()">&times;</span>
+    <!-- Organization Tree Section -->
+    <div id="organizationTreePage" class="content-section" style="display: none;">
       <h2>Organization Tree</h2>
       <div id="organizationTree">
         <ul class="tree">

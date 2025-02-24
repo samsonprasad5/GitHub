@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Function to Show/Hide Sections based on Sidebar Clicks
     function showSection(section) {
-      const sections = document.querySelectorAll('.hidden-content');
+      const sections = document.querySelectorAll('.content-section');
       sections.forEach(s => s.style.display = 'none'); // Hide all sections
       document.getElementById(section).style.display = 'block'; // Show the selected section
     }
@@ -16,19 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
         showSection(section);
       });
     });
-  
-    // Open Organization Tree Modal
-    const openTreeBtn = document.getElementById('openTreeBtn');
-    openTreeBtn.addEventListener('click', () => {
-      const modal = document.getElementById('organizationTreeModal');
-      modal.style.display = 'flex';
-    });
-  
-    // Close Organization Tree Modal
-    function closeOrganizationTree() {
-      const modal = document.getElementById('organizationTreeModal');
-      modal.style.display = 'none';
-    }
   
     // Toggle departments in the organization tree
     const toggleButtons = document.querySelectorAll('.toggle-btn');
