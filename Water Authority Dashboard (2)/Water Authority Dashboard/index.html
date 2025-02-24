@@ -22,6 +22,24 @@
     <!-- Dashboard Section -->
     <div id="dashboard" class="hidden-content">
       <h1>Dashboard</h1>
+      <div class="dashboard-cards">
+        <div class="card">
+          <h3>Total Water Usage</h3>
+          <p>1,250,000 Litres</p>
+        </div>
+        <div class="card">
+          <h3>Active Customers</h3>
+          <p>56,000</p>
+        </div>
+        <div class="card">
+          <h3>Revenue (FJD)</h3>
+          <p>$3.5M</p>
+        </div>
+        <div class="card">
+          <h3>Pending Payments</h3>
+          <p>$200,000</p>
+        </div>
+      </div>
       <canvas id="waterUsageChart" width="400" height="200"></canvas>
       <button id="logout">Logout</button>
     </div>
@@ -68,38 +86,6 @@
                       </li>
                     </ul>
                   </li>
-                  <li>
-                    <div class="toggle-btn">ICT</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="James Brown" data-email="jamesbrown@example.com" data-phone="555-555-6666">ICT Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Research Monitoring</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Sophia Green" data-email="sophiagreen@example.com" data-phone="555-777-8888">Research Monitoring Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Security Unit</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Olivia White" data-email="oliviawhite@example.com" data-phone="555-999-0000">Security Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Human Resources</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Liam Black" data-email="liamblack@example.com" data-phone="555-222-3333">Human Resources Manager</div>
-                      </li>
-                    </ul>
-                  </li>
                 </ul>
               </li>
               <!-- CLPO -->
@@ -111,180 +97,6 @@
                     <ul>
                       <li>
                         <div class="toggle-btn" data-name="Grace White" data-email="gracewhite@example.com" data-phone="555-888-9999">Legal Advisor Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Privacy</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Robert Black" data-email="robertblack@example.com" data-phone="555-222-3333">Privacy Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Procurement</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Susan Grey" data-email="susangrey@example.com" data-phone="555-444-5555">Procurement Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Legal & Contract</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="David Brown" data-email="davidbrown@example.com" data-phone="555-666-7777">Legal Contract Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <!-- CIDO -->
-              <li>
-                <div class="toggle-btn CIDO">Chief Infrastructure Design Officer (CIDO)</div>
-                <ul>
-                  <li>
-                    <div class="toggle-btn">Infrastructure Design</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Elena Harris" data-email="elenaharris@example.com" data-phone="555-444-5555">Infrastructure Design Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Planning & Modeling</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Kyle Phillips" data-email="kylephillips@example.com" data-phone="555-666-7777">Planning and Modeling Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Construction</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Rachel Green" data-email="rachelgreen@example.com" data-phone="555-888-9999">Construction Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Infrastructure Support</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Mason White" data-email="masonwhite@example.com" data-phone="555-000-1111">Infrastructure Support Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Land Management</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Oliver Black" data-email="oliverblack@example.com" data-phone="555-222-3333">Land Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <!-- BSHG -->
-              <li>
-                <div class="toggle-btn BSHG">Business Strategy & Governance (BSHG)</div>
-                <ul>
-                  <li>
-                    <div class="toggle-btn">Knowledge Management</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Alice White" data-email="alicewhite@example.com" data-phone="555-333-4444">Knowledge Management Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Policy Management</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Samuel Green" data-email="samuelgreen@example.com" data-phone="555-555-6666">Policy Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <!-- COO -->
-              <li>
-                <div class="toggle-btn COO">Chief Operating Officer (COO)</div>
-                <ul>
-                  <li>
-                    <div class="toggle-btn">Logistics</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Charlotte King" data-email="charlotteking@example.com" data-phone="555-777-8888">Logistics Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Operations</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Isla Adams" data-email="islaadams@example.com" data-phone="555-999-0000">Operations Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Supply Chain</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Henry Johnson" data-email="henryjohnson@example.com" data-phone="555-222-3333">Supply Chain Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <!-- CAMO -->
-              <li>
-                <div class="toggle-btn CAMO">Chief Audit & Monitoring Officer (CAMO)</div>
-                <ul>
-                  <li>
-                    <div class="toggle-btn">Compliance Audit</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Sebastian Turner" data-email="sebastianturner@example.com" data-phone="555-333-4444">Compliance Audit Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Monitoring</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Daniel Miller" data-email="danielmiller@example.com" data-phone="555-555-6666">Monitoring Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-              <!-- CFO -->
-              <li>
-                <div class="toggle-btn CFO">Chief Financial Officer (CFO)</div>
-                <ul>
-                  <li>
-                    <div class="toggle-btn">Financial Planning</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Ava Johnson" data-email="avajohnson@example.com" data-phone="555-777-8888">Financial Planning Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Accounting</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Mason Carter" data-email="masoncarter@example.com" data-phone="555-222-3333">Accounting Manager</div>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="toggle-btn">Risk Management</div>
-                    <ul>
-                      <li>
-                        <div class="toggle-btn" data-name="Zoe Clark" data-email="zoeclark@example.com" data-phone="555-444-5555">Risk Management Manager</div>
                       </li>
                     </ul>
                   </li>
