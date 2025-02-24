@@ -17,6 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   
+    // Open Organization Tree Modal
+    function openOrganizationTree() {
+      const modal = document.getElementById('organizationTreeModal');
+      modal.style.display = 'flex';
+    }
+  
+    // Close Organization Tree Modal
+    function closeOrganizationTree() {
+      const modal = document.getElementById('organizationTreeModal');
+      modal.style.display = 'none';
+    }
+  
     // Toggle departments in the organization tree
     const toggleButtons = document.querySelectorAll('.toggle-btn');
     toggleButtons.forEach(button => {
