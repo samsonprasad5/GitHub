@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-// Function to Show/Hide Sections based on Sidebar Click
+// Function to Show/Hide Sections based on Sidebar Clicks
 function showSection(section) {
   const sections = document.querySelectorAll('.hidden-content');
   sections.forEach(s => s.style.display = 'none');
