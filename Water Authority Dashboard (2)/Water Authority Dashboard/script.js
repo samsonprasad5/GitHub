@@ -18,10 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
     // Open Organization Tree Modal
-    function openOrganizationTree() {
+    const openTreeBtn = document.getElementById('openTreeBtn');
+    openTreeBtn.addEventListener('click', () => {
       const modal = document.getElementById('organizationTreeModal');
       modal.style.display = 'flex';
-    }
+    });
   
     // Close Organization Tree Modal
     function closeOrganizationTree() {
