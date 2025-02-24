@@ -2,12 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to Show/Hide Sections based on Sidebar Clicks
     function showSection(section) {
       const sections = document.querySelectorAll('.hidden-content');
-      sections.forEach(s => s.style.display = 'none');
-      document.getElementById(section).style.display = 'block';
+      sections.forEach(s => s.style.display = 'none'); // Hide all sections
+      document.getElementById(section).style.display = 'block'; // Show the selected section
     }
   
     // Default to Dashboard on Page Load
     showSection('dashboard');
+  
+    // Add event listeners to sidebar buttons
+    document.querySelectorAll('.sidebar-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const section = button.getAttribute('onclick').match(/'(.*?)'/)[1]; // Extract section name
+        showSection(section);
+      });
+    });
   
     // Toggle departments in the organization tree
     const toggleButtons = document.querySelectorAll('.toggle-btn');
