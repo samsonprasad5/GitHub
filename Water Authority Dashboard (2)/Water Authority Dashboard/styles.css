@@ -1,75 +1,4 @@
-/* Basic Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-}
-
-#sidebar {
-  width: 250px;
-  background-color: #333;
-  color: white;
-  position: fixed;
-  height: 100%;
-  padding-top: 30px;
-}
-
-#sidebar ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-#sidebar ul li {
-  padding: 15px;
-}
-
-#sidebar .sidebar-btn {
-  color: white;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  width: 100%;
-  text-align: left;
-  padding: 15px;
-  cursor: pointer;
-}
-
-#sidebar .sidebar-btn:hover {
-  background-color: #444;
-}
-
-#main-content {
-  margin-left: 250px;
-  padding: 20px;
-}
-
-.content-section {
-  display: none; /* Hide all sections by default */
-}
-
-.dashboard-cards {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.card {
-  background-color: #4CAF50;
-  color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 22%;
-  text-align: center;
-}
-
-/* Tree styling with boxes */
+/* Tree Styling */
 .tree {
   list-style-type: none;
   padding-left: 0;
@@ -138,7 +67,6 @@ body {
   content: "▼";
 }
 
-/* Child nodes */
 .tree ul {
   list-style-type: none;
   padding-left: 0;
@@ -152,36 +80,7 @@ body {
   margin: 5px 0;
 }
 
-/* Popup styling */
-.popup {
-  display: none;
-  position: absolute;
-  background: #fff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  max-width: 300px;
-}
-
-.popup .details {
-  margin-bottom: 5px;
-}
-
-button {
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-#waterUsageChart {
-  max-width: 800px;
-  margin: 20px 0;
+.role {
+  font-size: 0.9rem;
+  color: #666;
 }
