@@ -77,10 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
         labels: ['CCO', 'CSIO', 'CLPO', 'CIDO', 'BS&HG', 'COO', 'CAMO', 'CFO'],
         datasets: [{
           label: 'Number of Departments',
-          data: [5, 3, 7, 4, 6, 2, 8, 5],
+          data: [5, 3, 6, 4, 6, 2, 7, 5],
           backgroundColor: 'rgba(75, 192, 192, 0.6)',
-          borderColor: 'rgba(75, 192, 192, 1)',
-          borderWidth: 1,
+          borderColor: 'rgb(0, 0, 0)',
+          borderWidth: 1.5,
           barThickness: 60
         }]
       },
