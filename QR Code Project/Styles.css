@@ -76,7 +76,7 @@ button:hover {
 
 #downloadBtn {
     display: none; /* Hidden by default */
-    margin-top: 20px; /* Space between QR code and button */
+    margin-top: 0px; /* Space between QR code and button */
 }
     #sizeSelector {
         width: 200px; /* Set the width of the dropdown */
@@ -99,7 +99,3 @@ button:hover {
         border-color: #000000; /* Change border color on focus */
         box-shadow: 0 0 5px #0c83f1(12, 131, 241, 0.5); /* Add a subtle shadow on focus */
     }
-
-
-    
-    
