@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organization Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <ul>
+      <li><button class="sidebar-btn" onclick="showSection('dashboard')">Dashboard</button></li>
+      <li><button class="sidebar-btn" onclick="showSection('employeeManagementSection')">Employee Management</button></li>
+      <li><button class="sidebar-btn" onclick="showSection('organizationTreePage')">Organization Tree</button></li>
+    </ul>
+  </div>
+
+  <!-- Main Content Area -->
+  <div id="main-content">
+    <!-- Dashboard Section -->
+    <div id="dashboard" class="content-section">
+      <h1>Dashboard</h1>
+      <div class="dashboard-cards">
+        <div class="card">
+          <h3>Total Water Usage</h3>
+          <p>1,250,000 Litres</p>
+        </div>
+        <div class="card">
+          <h3>Active Customers</h3>
+          <p>56,000</p>
+        </div>
+        <div class="card">
+          <h3>Revenue (FJD)</h3>
+          <p>$3.5M</p>
+        </div>
+        <div class="card">
+          <h3>Pending Payments</h3>
+          <p>$200,000</p>
+        </div>
+      </div>
+      <canvas id="waterUsageChart" width="400" height="200"></canvas>
+      <button id="logout">Logout</button>
+    </div>
+
+    <!-- Employee Management Section -->
+    <div id="employeeManagementSection" class="content-section" style="display: none;">
+      <h2>Employee Management</h2>
+      <form id="employeeForm">
+        <input type="text" id="employeeName" placeholder="Employee Name" required>
+        <input type="text" id="employeePosition" placeholder="Position" required>
+        <input type="text" id="employeeDepartment" placeholder="Department" required>
+        <button type="button" id="addEmployeeButton">Add Employee</button>
+        <button type="button" id="updateEmployeeButton" style="display:none;">Update Employee</button>
+        <button type="button" id="cancelUpdateButton" style="display:none;">Cancel</button>
+      </form>
+      <ul id="employeeDataList"></ul>
+    </div>
+
+    <!-- Organization Tree Section -->
+    <div id="organizationTreePage" class="content-section" style="display: none;">
+      <h2>Organization Tree</h2>
+      <div id="organizationTree">
+        <ul class="tree">
+          <li>
+            <div class="toggle-btn CEO">Chief Executive Officer (CEO)</div>
+            <ul>
+              <!-- CSIO Branch -->
+              <li>
+                <div class="toggle-btn CSIO">Chief Security & Information Officer (CSIO)</div>
+                <ul>
+                  <li>
+                    <div class="toggle-btn">Cybersecurity</div>
+                    <ul>
+                      <li>
+                        <div class="toggle-btn" data-name="John Smith" data-email="johnsmith@example.com" data-phone="555-111-2222">Manager ICT</div>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <div class="toggle-btn">Compliance</div>
+                    <ul>
+                      <li>
+                        <div class="toggle-btn" data-name="Emily Davis" data-email="emilydavis@example.com" data-phone="555-333-4444">Manager Compliance</div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <!-- CLPO Branch -->
+              <li>
+                <div class="toggle-btn CLPO">Chief Legal & Procurement Officer (CLPO)</div>
+                <ul>
+                  <li>
+                    <div class="toggle-btn">Legal Advisor</div>
+                    <ul>
+                      <li>
+                        <div class="toggle-btn" data-name="Grace White" data-email="gracewhite@example.com" data-phone="555-888-9999">Legal Advisor Manager</div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <!-- CFO Branch -->
+              <li>
+                <div class="toggle-btn CFO">Chief Financial Officer (CFO)</div>
+                <ul>
+                  <li>
+                    <div class="toggle-btn">Finance</div>
+                    <ul>
+                      <li>
+                        <div class="toggle-btn" data-name="Michael Brown" data-email="michaelbrown@example.com" data-phone="555-555-5555">Finance Manager</div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <!-- COO Branch -->
+              <li>
+                <div class="toggle-btn COO">Chief Operations Officer (COO)</div>
+                <ul>
+                  <li>
+                    <div class="toggle-btn">Operations</div>
+                    <ul>
+                      <li>
+                        <div class="toggle-btn" data-name="Sarah Johnson" data-email="sarahjohnson@example.com" data-phone="555-666-7777">Operations Manager</div>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup for Employee Details -->
+  <div class="popup" id="popup">
+    <div class="details"></div>
+  </div>
+
+  <!-- External JS File -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+#sidebar {
+  width: 250px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  height: 100%;
+  padding-top: 30px;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#sidebar ul li {
+  padding: 15px;
+}
+
+#sidebar .sidebar-btn {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  width: 100%;
+  text-align: left;
+  padding: 15px;
+  cursor: pointer;
+}
+
+#sidebar .sidebar-btn:hover {
+  background-color: #444;
+}
+
+#main-content {
+  margin-left: 250px;
+  padding: 20px;
+}
+
+.content-section {
+  display: none; /* Hide all sections by default */
+}
+
+.dashboard-cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 22%;
+  text-align: center;
+}
+
+/* Tree styling for horizontal layout */
+.tree {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tree ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px; /* Space between levels */
+  position: relative;
+}
+
+.tree li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 40px; /* Space between nodes */
+  position: relative;
+}
+
+/* Horizontal connectors */
+.tree li::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  width: 100%;
+  border-top: 2px solid #4CAF50;
+}
+
+/* Vertical connectors */
+.tree li::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  height: 25px;
+  border-left: 2px solid #4CAF50;
+}
+
+/* Remove connectors for single nodes */
+.tree li:only-child::before, .tree li:only-child::after {
+  display: none;
+}
+
+/* Remove left connector for the first child */
+.tree li:first-child::before {
+  border: 0 none;
+}
+
+/* Remove right connector for the last child */
+.tree li:last-child::after {
+  border: 0 none;
+}
+
+/* Node styling */
+.toggle-btn {
+  cursor: pointer;
+  font-weight: bold;
+  color: #4CAF50;
+  background-color: #fff;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  width: 200px;
+  position: relative;
+  margin: 5px 0;
+}
+
+.toggle-btn:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.toggle-btn::before {
+  content: "▶";
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.toggle-btn.open::before {
+  content: "▼";
+}
+
+/* Child nodes */
+.tree ul ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px; /* Space between levels */
+}
+
+.tree ul ul li {
+  margin: 0 40px; /* Space between nodes */
+}
+
+/* Popup styling */
+.popup {
+  display: none;
+  position: absolute;
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.popup .details {
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#waterUsageChart {
+  max-width: 800px;
+  margin: 20px 0;
+}
