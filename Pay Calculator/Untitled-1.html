@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Pay Calculator</title>
+    <script>
+        function calculatePay() {
+            let hours = parseFloat(document.getElementById('hours').value);
+            let rate = parseFloat(document.getElementById('rate').value);
+            let tax = parseFloat(document.getElementById('tax').value);
+            
+            if (isNaN(hours) || isNaN(rate) || isNaN(tax)) {
+                alert("Please enter valid numbers");
+                return;
+            }
+            
+            let grossPay = hours * rate;
+            let taxDeduction = grossPay * tax;
+            let netPay = grossPay - taxDeduction;
+            
+            document.getElementById('grossPay').innerText = "Gross Pay: $" + grossPay.toFixed(2);
+            document.getElementById('netPay').innerText = "Net Pay: $" + netPay.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h2>Pay Calculator</h2>
+    <label>Hours Worked: <input type="number" id="hours" step="0.1"></label><br>
+    <label>Hourly Rate: <input type="number" id="rate" step="0.01"></label><br>
+    <label>Tax Rate (decimal): <input type="number" id="tax" step="0.01" value="0.1"></label><br>
+    <button onclick="calculatePay()">Calculate</button>
+    <p id="grossPay"></p>
+    <p id="netPay"></p>
+</body>
+</html>
