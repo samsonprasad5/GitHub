@@ -2,33 +2,80 @@
 <html>
 <head>
     <title>Simple Pay Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+    </style>
     <script>
         function calculatePay() {
             let hours = parseFloat(document.getElementById('hours').value);
             let rate = parseFloat(document.getElementById('rate').value);
             let tax = parseFloat(document.getElementById('tax').value);
-            
+
             if (isNaN(hours) || isNaN(rate) || isNaN(tax)) {
                 alert("Please enter valid numbers");
                 return;
             }
-            
+
             let grossPay = hours * rate;
             let taxDeduction = grossPay * tax;
             let netPay = grossPay - taxDeduction;
-            
+
             document.getElementById('grossPay').innerText = "Gross Pay: $" + grossPay.toFixed(2);
             document.getElementById('netPay').innerText = "Net Pay: $" + netPay.toFixed(2);
         }
     </script>
 </head>
 <body>
-    <h2>Pay Calculator</h2>
-    <label>Hours Worked: <input type="number" id="hours" step="0.1"></label><br>
-    <label>Hourly Rate: <input type="number" id="rate" step="0.01"></label><br>
-    <label>Tax Rate (decimal): <input type="number" id="tax" step="0.01" value="0.1"></label><br>
-    <button onclick="calculatePay()">Calculate</button>
-    <p id="grossPay"></p>
-    <p id="netPay"></p>
+    <div class="container">
+        <h2>Pay Calculator</h2>
+        <label>Hours Worked:</label>
+        <input type="number" id="hours" step="0.1">
+        <label>Hourly Rate:</label>
+        <input type="number" id="rate" step="0.01">
+        <label>Tax Rate (decimal):</label>
+        <input type="number" id="tax" step="0.01" value="0.1">
+        <button onclick="calculatePay()">Calculate</button>
+        <p id="grossPay"></p>
+        <p id="netPay"></p>
+    </div>
 </body>
 </html>
