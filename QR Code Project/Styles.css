@@ -98,6 +98,7 @@ button:hover {
         outline: none; /* Remove the default focus outline */
         border-color: #000000; /* Change border color on focus */
         box-shadow: 0 0 5px #0c83f1(12, 131, 241, 0.5); /* Add a subtle shadow on focus */
+<<<<<<< HEAD
     }
 
     footer {
@@ -113,3 +114,6 @@ button:hover {
     }
     
     
+=======
+    }
+>>>>>>> 53a7290d36d03ee65f0f05cf08119cfe9b847d8e
