@@ -101,12 +101,15 @@ button:hover {
     }
 
     footer {
-        background-color: #333;
+        background-color: red;  /* Change color to see if it appears */
         color: white;
         text-align: center;
-        padding: 10px 0;
+        padding: 20px;
+        font-size: 18px;
+        width: 100%;
         position: fixed;
         bottom: 0;
-        width: 100%;
+        left: 0;
     }
+    
     
