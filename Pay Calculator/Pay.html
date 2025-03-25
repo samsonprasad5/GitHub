@@ -3,34 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay Calculator with Excel Upload</title>
-    <link rel="stylesheet" href="Pay Calculator.css"> <!-- Link to your CSS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <title>Pay Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
 
+        #calculatorForm {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ffe9;
+            border: 1px solid #b0e0b0;
+            border-radius: 5px;
+        }
+
+        #missingHours {
+            margin-top: 10px;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <div class="calculator-container">
-        <h1>Pay Calculator</h1>
-        
-        <!-- Excel File Upload Section -->
-        <div class="upload-section">
-            <h2>Upload Your Excel Timesheet</h2>
-            <input type="file" id="fileUpload" accept=".xlsx, .xls, .docx"> <!-- File upload input -->
-        </div>
 
-        <!-- Pay Calculation Form -->
-        <form id="calculatorForm">
-            <input type="number" id="hoursWorked" placeholder="Enter hours worked" required>
-            <input type="number" id="hourlyRate" placeholder="Enter hourly rate" required>
-            <input type="number" id="expectedHours" placeholder="Enter total expected hours (optional)">
-            <button type="submit">Calculate</button>
-        </form>
+    <div id="calculatorForm">
+        <h2>Pay Calculator</h2>
 
-        <!-- Result Box -->
-        <div class="result" id="result"></div>
+        <label for="hoursWorked">Enter Hours Worked:</label>
+        <input type="number" id="hoursWorked" placeholder="Enter hours worked" required>
+
+        <label for="expectedHours">Enter Expected Hours:</label>
+        <input type="number" id="expectedHours" placeholder="Enter expected hours" required>
+
+        <label for="hourlyRate">Enter Hourly Rate:</label>
+        <input type="number" id="hourlyRate" placeholder="Enter hourly rate" required>
+
+        <button type="button" onclick="calculatePay()">Calculate</button>
+
+        <div id="result"></div>
+        <div id="missingHours"></div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> <!-- SheetJS Library -->
-    <script src="Pay Calculator javascript.js"></script> <!-- Your JS code -->
+    <script>
+        function calculatePay() {
+            let hoursWorked = document.getElementById('hoursWorked').value;
+            let expectedHours = document.getElementById('expectedHours').value;
+            let hourlyRate = document.getElementById('hourlyRate').value;
+
+            if (hoursWorked && expectedHours && hourlyRate) {
+                let totalPay = hoursWorked * hourlyRate;
+                let missingHours = expectedHours - hoursWorked;
+
+                document.getElementById('result').innerHTML = "Total Pay: $" + totalPay.toFixed(2);
+                
+                if (missingHours > 0) {
+                    document.getElementById('missingHours').innerHTML = "You are missing " + missingHours + " hours to reach the expected hours.";
+                } else {
+                    document.getElementById('missingHours').innerHTML = "You have met or exceeded the expected hours!";
+                }
+            } else {
+                alert("Please fill in all fields.");
+            }
+        }
+    </script>
+
 </body>
 </html>
