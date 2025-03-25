@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -73,3 +74,147 @@
     <script src="{{ url_for('static', filename='Java.js') }}"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Records Dashboard</title>
+
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #search-form {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="text"], select {
+            padding: 8px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #no-records {
+            text-align: center;
+            color: red;
+            margin-top: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        #pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #pagination button {
+            padding: 8px 12px;
+            margin: 0 5px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #pagination button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="page-title">Text Records Dashboard</h1>
+
+    <!-- Search Form with ARIA enhancements -->
+    <form id="search-form" aria-labelledby="page-title">
+        <label for="search">Search Records:</label>
+        <input type="text" id="search" name="search" placeholder="Search..." aria-label="Enter your search query here">
+        
+        <select id="filter-dropdown" aria-label="Filter the search results">
+            <option value="">Filter by Category</option>
+            <option value="Title">Title</option>
+            <option value="Content">Content</option>
+            <option value="Date">Date</option>
+        </select>
+
+        <button type="submit" aria-label="Search the text records">Search</button>
+    </form>
+
+    <!-- "No Records Found" Message -->
+    <div id="no-records" aria-live="polite">No records found. Please try a different search.</div>
+
+    <!-- Table to Display Records (with ARIA role) -->
+    <table id="data-table" role="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Content</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Sample Title</td>
+                <td>This is sample content from the database.</td>
+                <td>2025-03-25</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Another Record</td>
+                <td>More text records for testing purposes.</td>
+                <td>2025-03-24</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <div id="pagination" role="navigation" aria-label="Pagination controls">
+        <button id="prev" aria-label="Go to the previous page">Previous</button>
+        <button id="next" aria-label="Go to the next page">Next</button>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Text Records Dashboard. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to JavaScript -->
+    <script src="{{ url_for('static', filename='Java.js') }}"></script>
+</body>
+</html>
+>>>>>>> 163f2cb8f9ede66347787ae1801c663328d43c02
