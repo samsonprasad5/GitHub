@@ -4,22 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pay Calculator with Excel Upload</title>
-    <link rel="stylesheet" href="Pay Calculator.css"> <!-- CSS -->
+    <link rel="stylesheet" href="Pay Calculator.css"> <!-- Link to your CSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
 </head>
 <body>
     <div class="calculator-container">
         <h1>Pay Calculator</h1>
+        
+        <!-- Excel File Upload Section -->
+        <div class="upload-section">
+            <h2>Upload Your Excel Timesheet</h2>
+            <input type="file" id="fileUpload" accept=".xlsx, .xls, .docx"> <!-- File upload input -->
+        </div>
+
+        <!-- Pay Calculation Form -->
         <form id="calculatorForm">
             <input type="number" id="hoursWorked" placeholder="Enter hours worked" required>
             <input type="number" id="hourlyRate" placeholder="Enter hourly rate" required>
             <input type="number" id="expectedHours" placeholder="Enter total expected hours (optional)">
-            <input type="file" id="fileUpload" accept=".xlsx, .xls"> <!-- File upload input -->
             <button type="submit">Calculate</button>
         </form>
+
+        <!-- Result Box -->
         <div class="result" id="result"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script> <!-- SheetJS Library -->
-    <script src="Pay Calculator javascript.js"></script> <!-- JS Code -->
+    <script src="Pay Calculator javascript.js"></script> <!-- Your JS code -->
 </body>
 </html>
