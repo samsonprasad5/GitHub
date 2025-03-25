@@ -1,19 +1,35 @@
-function calculatePay() {
-    let hours = parseFloat(document.getElementById('hours').value);
-    let rate = parseFloat(document.getElementById('rate').value);
-    let tax = parseFloat(document.getElementById('tax').value);
-    let requiredHours = parseFloat(document.getElementById('requiredHours').value);
+document.getElementById("calculatorForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent page refresh
 
-    fetch('/calculate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ hours: hours, rate: rate, tax: tax, required_hours: requiredHours })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('grossPay').innerText = "Gross Pay: $" + data.gross_pay;
-        document.getElementById('netPay').innerText = "Net Pay: $" + data.net_pay;
-        document.getElementById('missingHours').innerText = data.missing_hours > 0 ? "Missing Hours: " + data.missing_hours : "No missing hours";
-    })
-    .catch(error => console.error('Error:', error));
-}
+    // Get input values
+    const hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
+    const hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
+    const expectedHours = parseFloat(document.getElementById("expectedHours").value);
+
+    // Validate hours worked and hourly rate
+    if (isNaN(hoursWorked) || isNaN(hourlyRate)) {
+        alert("Please enter valid numbers for hours worked and hourly rate.");
+        return;
+    }
+
+    // Calculate total pay
+    const totalPay = hoursWorked * hourlyRate;
+
+    // Calculate and display missing hours and projected pay if expected hours are provided
+    let projectedPayMessage = "";
+    let missingHoursMessage = "";
+    if (!isNaN(expectedHours)) {
+        const projectedPay = expectedHours * hourlyRate;
+        const missingHours = expectedHours - hoursWorked;
+
+        projectedPayMessage = `<br>Projected Pay (for ${expectedHours} hours): $${projectedPay.toFixed(2)}`;
+        missingHoursMessage = `<br>Missing Hours: ${missingHours > 0 ? missingHours : 0}`;
+    }
+
+    // Update the result div to display total pay, projected pay, and missing hours
+    document.getElementById("result").innerHTML = `
+        Total Pay (actual): $${totalPay.toFixed(2)}
+        ${projectedPayMessage}
+        ${missingHoursMessage}
+    `;
+});

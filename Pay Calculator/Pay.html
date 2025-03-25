@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pay Calculator</title>
-    <link rel="stylesheet" type="text/css" href="Pay Calculator.css">
-    <script src="Pay Calculator javascript.js" defer></script>
+    <link rel="stylesheet" href="Pay Calculator.css"> <!-- Link to CSS -->
 </head>
 <body>
-    <div class="container">
-        <h2>Pay Calculator</h2>
-        <label>Hours Worked:</label>
-        <input type="number" id="hours" step="0.1">
-        <label>Hourly Rate:</label>
-        <input type="number" id="rate" step="0.01">
-        <label>Tax Rate (decimal):</label>
-        <input type="number" id="tax" step="0.01" value="0.1">
-        <label>Required Hours:</label>
-        <input type="number" id="requiredHours" step="0.1" placeholder="e.g. 40">
-        <button onclick="calculatePay()">Calculate</button>
-        <p id="grossPay"></p>
-        <p id="netPay"></p>
-        <p id="missingHours"></p>
+    <div class="calculator-container">
+        <h1>Pay Calculator</h1>
+        <form id="calculatorForm">
+            <input type="number" id="hoursWorked" placeholder="Enter hours worked" required>
+            <input type="number" id="hourlyRate" placeholder="Enter hourly rate" required>
+            <input type="number" id="expectedHours" placeholder="Enter total expected hours (optional)">
+            <button type="submit">Calculate</button>
+        </form>
+        <div class="result" id="result"></div>
     </div>
+
+    <script src="Pay Calculator javascript.js"></script> <!-- Link to JavaScript -->
 </body>
 </html>
