@@ -4,98 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pay Calculator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            padding: 20px;
-        }
-
-        #calculatorForm {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        #result {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e9ffe9;
-            border: 1px solid #b0e0b0;
-            border-radius: 5px;
-        }
-
-        #missingHours {
-            margin-top: 10px;
-            color: red;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="Pay Calculator.css">
 </head>
 <body>
+    <div class="container">
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle">
+            <label for="darkSwitch">Dark Mode:</label>
+            <input type="checkbox" id="darkSwitch">
+        </div>
 
-    <div id="calculatorForm">
         <h2>Pay Calculator</h2>
 
-        <label for="hoursWorked">Enter Hours Worked:</label>
-        <input type="number" id="hoursWorked" placeholder="Enter hours worked" required>
+        <!-- Input Fields -->
+        <label for="value1">Enter Value 1:</label>
+        <input type="number" id="value1" placeholder="Insert value 1">
 
-        <label for="expectedHours">Enter Expected Hours:</label>
-        <input type="number" id="expectedHours" placeholder="Enter expected hours" required>
+        <label for="value2">Enter Value 2:</label>
+        <input type="number" id="value2" placeholder="Insert value 2">
 
-        <label for="hourlyRate">Enter Hourly Rate:</label>
-        <input type="number" id="hourlyRate" placeholder="Enter hourly rate" required>
+        <!-- Calculate Button -->
+        <button id="calculateBtn">Calculate</button>
 
-        <button type="button" onclick="calculatePay()">Calculate</button>
+        <!-- File Upload Section -->
+        <div class="upload-section">
+            <input type="file" id="fileUpload" />
+        </div>
 
-        <div id="result"></div>
-        <div id="missingHours"></div>
+        <!-- Result Display -->
+        <div id="result">Result will be displayed here</div>
     </div>
 
     <script>
-        function calculatePay() {
-            let hoursWorked = document.getElementById('hoursWorked').value;
-            let expectedHours = document.getElementById('expectedHours').value;
-            let hourlyRate = document.getElementById('hourlyRate').value;
-
-            if (hoursWorked && expectedHours && hourlyRate) {
-                let totalPay = hoursWorked * hourlyRate;
-                let missingHours = expectedHours - hoursWorked;
-
-                document.getElementById('result').innerHTML = "Total Pay: $" + totalPay.toFixed(2);
-                
-                if (missingHours > 0) {
-                    document.getElementById('missingHours').innerHTML = "You are missing " + missingHours + " hours to reach the expected hours.";
-                } else {
-                    document.getElementById('missingHours').innerHTML = "You have met or exceeded the expected hours!";
-                }
-            } else {
-                alert("Please fill in all fields.");
-            }
-        }
+        // Dark Mode Functionality
+        const darkSwitch = document.getElementById('darkSwitch');
+        darkSwitch.addEventListener('change', function () {
+            document.body.classList.toggle('dark-mode');
+        });
     </script>
-
 </body>
 </html>
