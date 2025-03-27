@@ -31,7 +31,6 @@ document.getElementById("calculateButton").addEventListener("click", function (e
 
     const resultDiv = document.getElementById("result");
 
-    // Display the results without the completion rate
     resultDiv.innerHTML = `
         <p>Total Pay: $${totalPay.toFixed(2)}</p>
         <p>Missing Hours: ${missingHours}</p>
@@ -39,3 +38,57 @@ document.getElementById("calculateButton").addEventListener("click", function (e
 
     updateResultStyle();  // Apply the correct mode styling after calculation
 });
+
+// Handle Excel Upload and Calculate Total Hours Worked
+document.getElementById("fileUpload").addEventListener("change", handleFileUpload);
+
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: "array" });
+            const sheetName = workbook.SheetNames[0];
+            const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
+
+            calculateTotalHours(sheetData);  // Calculate total hours from the sheet data
+        };
+        reader.readAsArrayBuffer(file);
+    }
+}
+
+function calculateTotalHours(data) {
+    if (data.length < 2) {
+        alert("Invalid data. Please ensure the Excel file has at least one column with numeric data.");
+        return;
+    }
+
+    let totalHours = 0;
+    let numericColumnFound = false;
+
+    // Iterate through each column in each row, looking for numeric values to sum
+    for (let i = 1; i < data.length; i++) {
+        const row = data[i];
+        for (let j = 0; j < row.length; j++) {
+            const value = parseFloat(row[j]);
+            if (!isNaN(value)) {
+                totalHours += value;
+                numericColumnFound = true;
+            }
+        }
+    }
+
+    if (!numericColumnFound) {
+        alert("No numeric data found in the file. Please upload a file with numeric values representing hours.");
+        return;
+    }
+
+    // Display the total hours worked
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `
+        <p>Total Hours Worked: ${totalHours.toFixed(2)} hours</p>
+    `;
+
+    updateResultStyle();  // Apply the correct mode styling after calculation
+}
