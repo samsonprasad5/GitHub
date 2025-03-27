@@ -1,3 +1,5 @@
+const FIXED_HOURS_FORTNIGHTLY = 80;  // Fixed hours for fortnight (default)
+
 document.getElementById("darkModeToggle").addEventListener("click", function () {
     document.body.classList.toggle("dark-mode");
     updateResultStyle();
@@ -6,40 +8,14 @@ document.getElementById("darkModeToggle").addEventListener("click", function () 
 function updateResultStyle() {
     const resultDiv = document.getElementById("result");
     if (document.body.classList.contains("dark-mode")) {
-        resultDiv.style.backgroundColor = "#444";  // Dark mode background
-        resultDiv.style.color = "white";  // Light text for visibility
+        resultDiv.style.backgroundColor = "#444";
+        resultDiv.style.color = "white";
     } else {
-        resultDiv.style.backgroundColor = "#e9ffe9";  // Light mode background
-        resultDiv.style.color = "#333";  // Dark text for visibility
+        resultDiv.style.backgroundColor = "#e9ffe9";
+        resultDiv.style.color = "#333";
     }
 }
 
-document.getElementById("calculateButton").addEventListener("click", function (event) {
-    event.preventDefault();  // Prevent page refresh when the form submits
-
-    const hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
-    const expectedHours = parseFloat(document.getElementById("expectedHours").value);
-
-    if (isNaN(hoursWorked) || isNaN(expectedHours)) {
-        alert("Please enter valid numbers.");
-        return;
-    }
-
-    const hourlyRate = 20;  // Assuming $20/hour
-    const totalPay = Math.max(0, hoursWorked * hourlyRate);  // Calculate total pay
-    const missingHours = Math.max(0, expectedHours - hoursWorked);  // Calculate missing hours
-
-    const resultDiv = document.getElementById("result");
-
-    resultDiv.innerHTML = `
-        <p>Total Pay: $${totalPay.toFixed(2)}</p>
-        <p>Missing Hours: ${missingHours}</p>
-    `;
-
-    updateResultStyle();  // Apply the correct mode styling after calculation
-});
-
-// Handle Excel Upload and Calculate Total Hours Worked
 document.getElementById("fileUpload").addEventListener("change", handleFileUpload);
 
 function handleFileUpload(event) {
@@ -52,43 +28,40 @@ function handleFileUpload(event) {
             const sheetName = workbook.SheetNames[0];
             const sheetData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: 1 });
 
-            calculateTotalHours(sheetData);  // Calculate total hours from the sheet data
+            calculateTotalAndMissingHours(sheetData);
         };
         reader.readAsArrayBuffer(file);
     }
 }
 
-function calculateTotalHours(data) {
-    if (data.length < 2) {
-        alert("Invalid data. Please ensure the Excel file has at least one column with numeric data.");
+function calculateTotalAndMissingHours(data) {
+    if (data.length < 1) {
+        alert("Invalid data. Please ensure the Excel file contains valid data.");
         return;
     }
 
-    let totalHours = 0;
-    let numericColumnFound = false;
+    let totalHoursWorked = 0;
+    let totalExpectedHours = FIXED_HOURS_FORTNIGHTLY;  // Default to 80 hours for fortnight if no Expected Hours column
 
-    // Iterate through each column in each row, looking for numeric values to sum
+    // Iterate through all rows and add up the numbers (assuming numbers are hours)
     for (let i = 1; i < data.length; i++) {
         const row = data[i];
-        for (let j = 0; j < row.length; j++) {
-            const value = parseFloat(row[j]);
-            if (!isNaN(value)) {
-                totalHours += value;
-                numericColumnFound = true;
+        row.forEach(value => {
+            if (!isNaN(value) && value > 0) {
+                totalHoursWorked += parseFloat(value);
             }
-        }
+        });
     }
 
-    if (!numericColumnFound) {
-        alert("No numeric data found in the file. Please upload a file with numeric values representing hours.");
-        return;
-    }
+    const missingHours = Math.max(0, totalExpectedHours - totalHoursWorked);
 
-    // Display the total hours worked
+    // Display the results
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = `
-        <p>Total Hours Worked: ${totalHours.toFixed(2)} hours</p>
+        <p>Total Hours Worked: ${totalHoursWorked.toFixed(2)} hours</p>
+        <p>Total Expected Hours: ${totalExpectedHours.toFixed(2)} hours</p>
+        <p>Missing Hours: ${missingHours.toFixed(2)} hours</p>
     `;
 
-    updateResultStyle();  // Apply the correct mode styling after calculation
+    updateResultStyle();
 }
