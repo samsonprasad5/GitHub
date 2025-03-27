@@ -1,123 +1,111 @@
-/* General Styles */
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f4f7fc;
+* {
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 20px;
 }
 
 .container {
-  max-width: 600px;
-  padding: 20px;
+  max-width: 590px;
+  margin: 0 auto;
   background-color: white;
+  padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  color: #2c3e50;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-label {
-  font-size: 16px;
-  color: #34495e;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 input, button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   margin: 10px 0;
-  border-radius: 8px;
   border: 1px solid #ddd;
-  font-size: 16px;
+  border-radius: 5px;
 }
 
-input:focus, button:focus {
-  outline: none;
-  border-color: #3498db;
+/* Center the button container */
+.button-container {
+  display: flex;               /* Flexbox for centering */
+    justify-content: center;     /* Center horizontally */
+    align-items: center;         /* Center vertically (if needed) */
+    margin-top: 20px;            /* Space above the buttons */
+    width: 100%; 
 }
 
 button {
-  background-color: #3498db;
+  background-color: #007BFF;
   color: white;
-  font-weight: bold;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s;
+  width: 120px;  /* Fixed small width */
+}
+
+#calculateButton {
+    background-color: #007BFF;
+    color: white;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #0056b3;
 }
 
-/* File Upload Button */
-.upload-section {
-  text-align: center;
-  margin-top: 10px;
+.result {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #ffffff;  /* Light green for light mode */
+  color: #333;  /* Dark text for light mode */
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
 }
 
-#fileUpload {
-  background-color: #16a085;
+.dark-mode {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .result {
+  background-color: #444;  /* Dark background for dark mode */
+  color: white;  /* Light text for dark mode */
+}
+
+.dark-mode .container {
+  background-color: #000000;
+}
+
+.dark-mode input, .dark-mode button {
+  background-color: #000000;
+  color: white;
+}
+
+/* Dark mode button styling */
+#darkModeToggle {
+  padding: 5px;
+  font-size: 12px;
+  width: 40px;  /* Fixed small width */
+  height: 40px;  /* Fixed small height for a compact square button */
+  background-color: #555;
   color: white;
   border: none;
-  padding: 12px 50px;
+  border-radius: 50%;  /* Makes it a perfect circle */
   cursor: pointer;
-  font-size: 16px;
-  width: 80%;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: background-color 0.3s ease;
 }
 
-#fileUpload:hover {
-  background-color: #1abc9c;
-}
-
-/* Result Section */
-#result {
-  margin-top: 20px;
-  background-color: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Dark Mode Styles */
-body.dark-mode {
-  background-color: #1e1e1e;  /* Dark background */
-  color: #f0f0f0;             /* Light text */
-}
-
-body.dark-mode .container {
-  background-color: #333;     /* Darker background for container */
-  color: #f0f0f0;             /* Text color inside the container */
-  border-color: #555;         /* Dark border */
-}
-
-body.dark-mode input,
-body.dark-mode button {
-  background-color: #444;     /* Darker background for inputs and buttons */
-  color: #f0f0f0;             /* Light text */
-  border-color: #555;         /* Darker border */
-}
-
-body.dark-mode button {
-  background-color: #16a085;
-}
-
-.dark-mode-toggle {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 10px;
-}
-
-.dark-mode-toggle input {
-  margin-left: 10px;
+#darkModeToggle:hover {
+  background-color: #333;
+  color: #f0f0f0;
 }

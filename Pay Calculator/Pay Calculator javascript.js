@@ -1,68 +1,36 @@
-// Toggle dark mode on body and inputs/buttons
-document.getElementById("darkModeToggle").addEventListener("change", function () {
+document.getElementById("darkModeToggle").addEventListener("click", function () {
     document.body.classList.toggle("dark-mode");
+    updateResultStyle();
 });
 
-function handleSubmit() {
-    let hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
-    let hourlyRate = parseFloat(document.getElementById("hourlyRate").value);
-    let expectedHours = parseFloat(document.getElementById("expectedHours").value);
-
-    const fileInput = document.getElementById("fileUpload");
-    if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-        readExcelFile(file, function (data) {
-            hoursWorked = data.hoursWorked || hoursWorked;
-            hourlyRate = data.hourlyRate || hourlyRate;
-            expectedHours = data.expectedHours || expectedHours;
-
-            calculatePay(hoursWorked, hourlyRate, expectedHours);
-        });
+function updateResultStyle() {
+    const resultDiv = document.getElementById("result");
+    if (document.body.classList.contains("dark-mode")) {
+        resultDiv.style.backgroundColor = "#444";  // Dark mode background
+        resultDiv.style.color = "white";  // Light text for visibility
     } else {
-        calculatePay(hoursWorked, hourlyRate, expectedHours);
+        resultDiv.style.backgroundColor = "#e9ffe9";  // Light mode background
+        resultDiv.style.color = "#333";  // Dark text for visibility
     }
 }
 
-function readExcelFile(file, callback) {
-    const reader = new FileReader();
-    reader.onload = function (event) {
-        const data = new Uint8Array(event.target.result);
-        const workbook = XLSX.read(data, { type: "array" });
+document.getElementById("calculateButton").addEventListener("click", function () {
+    const hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
+    const expectedHours = parseFloat(document.getElementById("expectedHours").value);
 
-        const sheetName = workbook.SheetNames[0];
-        const sheet = workbook.Sheets[sheetName];
-        const jsonData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
-        if (jsonData.length > 0) {
-            const row = jsonData[0];
-            const hoursWorked = parseFloat(row[0]);
-            const hourlyRate = parseFloat(row[1]);
-            const expectedHours = parseFloat(row[2]);
-
-            callback({
-                hoursWorked: isNaN(hoursWorked) ? 0 : hoursWorked,
-                hourlyRate: isNaN(hourlyRate) ? 0 : hourlyRate,
-                expectedHours: isNaN(expectedHours) ? 0 : expectedHours
-            });
-        } else {
-            callback({});
-        }
-    };
-    reader.readAsArrayBuffer(file);
-}
-
-function calculatePay(hoursWorked, hourlyRate, expectedHours) {
-    const totalPay = hoursWorked * hourlyRate;
-    let projectedPayMessage = "";
-    let missingHoursMessage = "";
-
-    if (!isNaN(expectedHours)) {
-        const projectedPay = expectedHours * hourlyRate;
-        const missingHours = expectedHours - hoursWorked;
-
-        projectedPayMessage = `<br>Projected Pay (for ${expectedHours} hours): $${projectedPay.toFixed(2)}`;
-        missingHoursMessage = `<br>Missing Hours: ${missingHours > 0 ? missingHours : 0}`;
+    if (isNaN(hoursWorked) || isNaN(expectedHours)) {
+        alert("Please enter valid numbers.");
+        return;
     }
 
-    document.getElementById("result").innerHTML = `Total Pay (actual): $${totalPay.toFixed(2)}${projectedPayMessage}${missingHoursMessage}`;
-}
+    const totalPay = hoursWorked * 20; // Assuming $20/hour as default
+    const missingHours = Math.max(0, expectedHours - hoursWorked);
+    const resultDiv = document.getElementById("result");
+
+    resultDiv.innerHTML = `
+        <p>Total Pay: $${totalPay.toFixed(2)}</p>
+        <p>Missing Hours: ${missingHours}</p>
+    `;
+
+    updateResultStyle();  // Apply the correct mode styling after calculation
+});
