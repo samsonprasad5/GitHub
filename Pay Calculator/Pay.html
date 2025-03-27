@@ -23,12 +23,18 @@
             <label for="fileUpload">Upload Excel File:</label>
             <input type="file" id="fileUpload" accept=".xlsx, .xls">
 
-            <button id="calculateButton">Calculate</button>
-           
+            <!-- Wrapper to center the Calculate button -->
+            <div class="button-wrapper">
+                <button id="calculateButton">Calculate</button>
+            </div>
         </form>
 
         <div id="result" class="result"></div>
-        <button id="exportButton">Export Result</button>
+
+        <!-- Wrapper to center the Export Result button -->
+        <div class="button-wrapper">
+            <button id="exportButton">Export Result</button>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>

@@ -37,27 +37,44 @@ input, button {
 /* Center the button container */
 .button-container {
   display: flex;               /* Flexbox for centering */
-    justify-content: center;     /* Center horizontally */
-    align-items: center;         /* Center vertically (if needed) */
-    margin-top: 20px;            /* Space above the buttons */
-    width: 100%; 
+  justify-content: center;     /* Center horizontally */
+  align-items: center;         /* Center vertically (if needed) */
+  margin-top: 20px;            /* Space above the buttons */
+  width: 100%; 
+}
+
+.button-wrapper{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 button {
   background-color: #007BFF;
+  padding: 10px, 20px;
   color: white;
   border: none;
-  cursor: pointer;
-  width: 120px;  /* Fixed small width */
+  width: auto;  /* Fixed small width */
 }
 
 #calculateButton {
     background-color: #007BFF;
     color: white;
+    cursor: pointer;
 }
 
-button:hover {
+#calculateButton:hover{
   background-color: #0056b3;
+}
+
+#exportButton {
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+#exportButton:hover {
+  background-color: #1e7e34;
 }
 
 .result {
