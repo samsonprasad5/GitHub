@@ -14,7 +14,9 @@ function updateResultStyle() {
     }
 }
 
-document.getElementById("calculateButton").addEventListener("click", function () {
+document.getElementById("calculateButton").addEventListener("click", function (event) {
+    event.preventDefault();  // Prevent page refresh when the form submits
+
     const hoursWorked = parseFloat(document.getElementById("hoursWorked").value);
     const expectedHours = parseFloat(document.getElementById("expectedHours").value);
 
@@ -23,10 +25,13 @@ document.getElementById("calculateButton").addEventListener("click", function ()
         return;
     }
 
-    const totalPay = hoursWorked * 20; // Assuming $20/hour as default
-    const missingHours = Math.max(0, expectedHours - hoursWorked);
+    const hourlyRate = 20;  // Assuming $20/hour
+    const totalPay = Math.max(0, hoursWorked * hourlyRate);  // Calculate total pay
+    const missingHours = Math.max(0, expectedHours - hoursWorked);  // Calculate missing hours
+
     const resultDiv = document.getElementById("result");
 
+    // Display the results without the completion rate
     resultDiv.innerHTML = `
         <p>Total Pay: $${totalPay.toFixed(2)}</p>
         <p>Missing Hours: ${missingHours}</p>

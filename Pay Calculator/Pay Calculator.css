@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  max-width: 590px;
+  max-width: 700px;
   margin: 0 auto;
   background-color: white;
   padding: 40px;
@@ -126,3 +126,24 @@ button {
   background-color: #333;
   color: #f0f0f0;
 }
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #333;
+  color: white;
+  margin-top: 20px;
+ 
+}
+
+.footer a {
+  color: #007BFF; /* Link color */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+
