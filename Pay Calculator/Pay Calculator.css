@@ -1,3 +1,4 @@
+/* Global styles */
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +12,7 @@ body {
   padding: 20px;
 }
 
+/* Container styling */
 .container {
   max-width: 700px;
   margin: 0 auto;
@@ -20,12 +22,14 @@ body {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Header styling */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Input and button styles */
 input, button {
   width: 100%;
   padding: 10px;
@@ -34,16 +38,35 @@ input, button {
   border-radius: 5px;
 }
 
-/* Center the button container */
-.button-container {
-  display: flex;               /* Flexbox for centering */
-  justify-content: center;     /* Center horizontally */
-  align-items: center;         /* Center vertically (if needed) */
-  margin-top: 20px;            /* Space above the buttons */
-  width: 100%; 
+/* Error message box */
+.error-box {
+  background-color: #f8d7da; /* Light red background */
+  color: #000000; /* Dark red text */
+  border: 1px solid #f5c6cb; /* Red border */
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  display: none; /* Hide by default, show when error occurs */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.button-wrapper{
+/* Error message text */
+#error-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Optional: Add an icon to the error message */
+.error-box::before {
+  content: "⚠️"; /* Warning icon */
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+/* Button container centering */
+.button-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 15px;
@@ -57,16 +80,7 @@ button {
   width: auto;  /* Fixed small width */
 }
 
-#calculateButton {
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-}
-
-#calculateButton:hover{
-  background-color: #0056b3;
-}
-
+/* Export button */
 #exportButton {
   background-color: #28a745;
   color: white;
@@ -77,23 +91,25 @@ button {
   background-color: #1e7e34;
 }
 
+/* Result box */
 .result {
   margin-top: 20px;
   padding: 15px;
-  background-color: #ffffff;  /* Light green for light mode */
-  color: #333;  /* Dark text for light mode */
+  background-color: #ffffff;
+  color: #333;
   border: 1px solid #e0e0e0;
   border-radius: 5px;
 }
 
+/* Dark mode styles */
 .dark-mode {
   background-color: #333;
   color: white;
 }
 
 .dark-mode .result {
-  background-color: #444;  /* Dark background for dark mode */
-  color: white;  /* Light text for dark mode */
+  background-color: #444;
+  color: white;
 }
 
 .dark-mode .container {
@@ -133,16 +149,8 @@ button {
   padding: 15px 0;
   color: rgb(0, 0, 0);
   margin-top: 20px;
- 
-}
-
-.footer a {
-  color: #007BFF; /* Link color */
-  text-decoration: none;
 }
 
 .footer a:hover {
   text-decoration: underline;
 }
-
-
