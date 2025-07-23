@@ -1,0 +1,45 @@
+# 🧾 Pay Calculator – React & Flask Application
+
+A web-based **Pay Calculator** that allows users to upload attendance CSV files, automatically calculates total working hours, identifies flexi-hours to be claimed, and provides a summary of hours worked over a fortnight.
+
+---
+
+## ✨ Features
+
+- ✅ Upload CSV attendance files (with check-in and check-out times)
+- 🕒 Automatically calculate daily total working hours
+- 📉 Identify less time (compared to standard 8 hours/day)
+- 📊 Generate fortnight summary of hours worked
+- 🌐 Clean React frontend using Bootstrap
+- 🔁 Flask backend for CSV processing using Pandas & NumPy
+
+---
+
+## 🧰 Tech Stack
+
+### 🔹 Backend (Python / Flask)
+
+- **Flask** – For building the API server
+- **Flask-CORS** – To allow cross-origin requests from the frontend
+- **Pandas** – For reading and processing CSV data
+- **NumPy** – For numerical operations and rounding
+- **Tabulate** *(optional)* – For table formatting in terminal (if needed)
+- **datetime** – For time calculations and handling time deltas
+- **os** – For file path operations
+- **io (StringIO)** – For in-memory file handling (if used)
+
+### 🔹 Frontend (React)
+
+- **React.js** – For building the frontend UI
+- **Axios** – For sending HTTP requests to the backend
+- **Bootstrap** – For styling and layout
+
+---
+
+## ⚙️ Installation & Setup
+
+### 🔸 Backend (Flask API)
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
